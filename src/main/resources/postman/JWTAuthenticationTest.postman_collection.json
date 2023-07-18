@@ -1,0 +1,1066 @@
+{
+	"info": {
+		"_postman_id": "f9660c9d-8b61-4830-ba29-d78e043c3437",
+		"name": "JWTAuthenticationTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11993376"
+	},
+	"item": [
+		{
+			"name": "Get Token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Jul 2023 20:21:23 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"jwtToken\": \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4OTYyNTI4MywiZXhwIjoxNjg5NjQzMjgzfQ.WQK02y7IUSGBGgFdmj8ZpmwukRh4F86SRM4twaerTH2BJWlA4lHkAwSSQV-Vt4w3NZGV2tgfVG2kYLm3KdADZQ\",\n    \"username\": \"admin\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Courses",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:9090/admin/courses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"courses"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Courses",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4OTYyNTI4MywiZXhwIjoxNjg5NjQzMjgzfQ.WQK02y7IUSGBGgFdmj8ZpmwukRh4F86SRM4twaerTH2BJWlA4lHkAwSSQV-Vt4w3NZGV2tgfVG2kYLm3KdADZQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:9090/admin/courses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"admin",
+								"courses"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Jul 2023 20:24:40 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"courseId\": \"03ec72a2-1230-4812-9743-16eac9381db3\",\n        \"courseName\": \"English\",\n        \"courseTeacher\": \"abc\"\n    },\n    {\n        \"courseId\": \"65077889-51d8-409e-8635-09e003296052\",\n        \"courseName\": \"Math\",\n        \"courseTeacher\": \"abc\"\n    },\n    {\n        \"courseId\": \"3dc37796-c19c-4eb0-afa3-897115ffc889\",\n        \"courseName\": \"Science\",\n        \"courseTeacher\": \"abc\"\n    },\n    {\n        \"courseId\": \"8b20cf0d-c625-4b5a-b303-879dd98d757f\",\n        \"courseName\": \"History\",\n        \"courseTeacher\": \"abc\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get Students",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:9090/admin/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"students"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Students",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4OTY2OTYyMCwiZXhwIjoxNjg5Njg3NjIwfQ.uoMSrUk7sI96jsN8GjuVQiQypjMWD1wpMYnhWL20JBxQeAkazNVWXdoxuBZ6MyklqyG4yCU6UYPLnY6SmNL_xg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:9090/admin/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"admin",
+								"students"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 18 Jul 2023 08:40:38 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"studentId\": \"04fdac81-44e7-40e4-aa43-9cdf03e00543\",\n        \"studentName\": \"student1\",\n        \"studentEmail\": \"student1@gmail.com\",\n        \"studentTelephoneNumber\": \"123\",\n        \"studentAddress\": \"123 Street\"\n    },\n    {\n        \"studentId\": \"1c7aa2db-6d49-47d4-9da9-14f1f5877ab1\",\n        \"studentName\": \"student2\",\n        \"studentEmail\": \"student2@gmail.com\",\n        \"studentTelephoneNumber\": \"456\",\n        \"studentAddress\": \"456 Street\"\n    },\n    {\n        \"studentId\": \"f72690ed-6b31-463d-90c0-5f9e97202807\",\n        \"studentName\": \"student3\",\n        \"studentEmail\": \"student3@gmail.com\",\n        \"studentTelephoneNumber\": \"789\",\n        \"studentAddress\": \"789 Street\"\n    },\n    {\n        \"studentId\": \"d4ec2176-7b30-40a1-89e5-6fb5dd7ef544\",\n        \"studentName\": \"student4\",\n        \"studentEmail\": \"student4@gmail.com\",\n        \"studentTelephoneNumber\": \"111\",\n        \"studentAddress\": \"111 Street\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get Course",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:9090/admin/courses/English",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"courses",
+						"English"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Course",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4OTYyNTI4MywiZXhwIjoxNjg5NjQzMjgzfQ.WQK02y7IUSGBGgFdmj8ZpmwukRh4F86SRM4twaerTH2BJWlA4lHkAwSSQV-Vt4w3NZGV2tgfVG2kYLm3KdADZQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:9090/admin/courses/English",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"admin",
+								"courses",
+								"English"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Jul 2023 20:25:35 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"courseId\": \"03ec72a2-1230-4812-9743-16eac9381db3\",\n    \"courseName\": \"English\",\n    \"courseTeacher\": \"abc\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Student",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:9090/admin/students/student1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"students",
+						"student1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Student",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4OTY2OTc0NCwiZXhwIjoxNjg5Njg3NzQ0fQ.Zsi8Zjia_jJggJ40SXtSR2IrTyoH5rCsNxrpC_Up2rx39PdejdrDptSSWlfM-plPJnQUSPunztmtllK9edNSCg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:9090/admin/students/student1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"admin",
+								"students",
+								"student1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 18 Jul 2023 08:42:55 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"studentId\": \"04fdac81-44e7-40e4-aa43-9cdf03e00543\",\n    \"studentName\": \"student1\",\n    \"studentEmail\": \"student1@gmail.com\",\n    \"studentTelephoneNumber\": \"123\",\n    \"studentAddress\": \"123 Street\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Course",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"courseId\": \"111\",\r\n    \"courseName\": \"abc\",\r\n    \"courseTeacher\": \"gef\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/admin/courses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"courses"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Course",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4OTYyNTI4MywiZXhwIjoxNjg5NjQzMjgzfQ.WQK02y7IUSGBGgFdmj8ZpmwukRh4F86SRM4twaerTH2BJWlA4lHkAwSSQV-Vt4w3NZGV2tgfVG2kYLm3KdADZQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"courseId\": \"111\",\r\n    \"courseName\": \"abc\",\r\n    \"courseTeacher\": \"gef\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/admin/courses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"admin",
+								"courses"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Jul 2023 20:37:59 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"courseId\": \"ea377ab4-52ca-43c2-8105-a5350ac89058\",\n        \"courseName\": \"English\",\n        \"courseTeacher\": \"abc\"\n    },\n    {\n        \"courseId\": \"35856873-79e0-4e90-a039-e099a177ddb1\",\n        \"courseName\": \"Math\",\n        \"courseTeacher\": \"abc\"\n    },\n    {\n        \"courseId\": \"6340b1c8-3309-478b-a415-62a1d2234d7b\",\n        \"courseName\": \"Science\",\n        \"courseTeacher\": \"abc\"\n    },\n    {\n        \"courseId\": \"822e4643-3c4a-4583-812f-4fa406d7e3a2\",\n        \"courseName\": \"History\",\n        \"courseTeacher\": \"abc\"\n    },\n    {\n        \"courseId\": \"111\",\n        \"courseName\": \"abc\",\n        \"courseTeacher\": \"gef\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Add Student",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"studentId\": \"111\",\r\n    \"studentName\": \"abc\",\r\n    \"studentEmail\": \"gef@gmail.com\",\r\n    \"studentTelephoneNumber\": \"123\",\r\n    \"studentAddress\": \"123 Street\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/admin/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"students"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Student",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4OTY2OTc0NCwiZXhwIjoxNjg5Njg3NzQ0fQ.Zsi8Zjia_jJggJ40SXtSR2IrTyoH5rCsNxrpC_Up2rx39PdejdrDptSSWlfM-plPJnQUSPunztmtllK9edNSCg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"studentId\": \"111\",\r\n    \"studentName\": \"abc\",\r\n    \"studentEmail\": \"gef@gmail.com\",\r\n    \"studentTelephoneNumber\": \"123\",\r\n    \"studentAddress\": \"123 Street\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/admin/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"admin",
+								"students"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 18 Jul 2023 08:44:25 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"studentId\": \"04fdac81-44e7-40e4-aa43-9cdf03e00543\",\n        \"studentName\": \"student1\",\n        \"studentEmail\": \"student1@gmail.com\",\n        \"studentTelephoneNumber\": \"123\",\n        \"studentAddress\": \"123 Street\"\n    },\n    {\n        \"studentId\": \"1c7aa2db-6d49-47d4-9da9-14f1f5877ab1\",\n        \"studentName\": \"student2\",\n        \"studentEmail\": \"student2@gmail.com\",\n        \"studentTelephoneNumber\": \"456\",\n        \"studentAddress\": \"456 Street\"\n    },\n    {\n        \"studentId\": \"f72690ed-6b31-463d-90c0-5f9e97202807\",\n        \"studentName\": \"student3\",\n        \"studentEmail\": \"student3@gmail.com\",\n        \"studentTelephoneNumber\": \"789\",\n        \"studentAddress\": \"789 Street\"\n    },\n    {\n        \"studentId\": \"d4ec2176-7b30-40a1-89e5-6fb5dd7ef544\",\n        \"studentName\": \"student4\",\n        \"studentEmail\": \"student4@gmail.com\",\n        \"studentTelephoneNumber\": \"111\",\n        \"studentAddress\": \"111 Street\"\n    },\n    {\n        \"studentId\": \"111\",\n        \"studentName\": \"abc\",\n        \"studentEmail\": \"gef@gmail.com\",\n        \"studentTelephoneNumber\": \"123\",\n        \"studentAddress\": \"123 Street\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Update Course",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"courseName\": \"English Medium\",\r\n    \"courseTeacher\": \"abc to def\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/admin/courses/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"courses",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Course",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4OTY2ODYwMywiZXhwIjoxNjg5Njg2NjAzfQ.pAduEqxZ_DqsWwJ7TBjuP96Kfleq032c29fV58Rg55ZIQOAQ5mH5i4NUJyL13NVq49TTNLJWJ79V42LBTn2LSQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"courseName\": \"English Medium\",\r\n    \"courseTeacher\": \"abc to def\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/admin/courses/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"admin",
+								"courses",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 18 Jul 2023 08:27:52 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"courseId\": \"1\",\n    \"courseName\": \"English Medium\",\n    \"courseTeacher\": \"abc to def\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Student",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"studentName\": \"abc\",\r\n    \"studentEmail\": \"changed@gmail.com\",\r\n    \"studentTelephoneNumber\": \"123\",\r\n    \"studentAddress\": \"123 Street\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/admin/students/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"students",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Student",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4OTY2OTc0NCwiZXhwIjoxNjg5Njg3NzQ0fQ.Zsi8Zjia_jJggJ40SXtSR2IrTyoH5rCsNxrpC_Up2rx39PdejdrDptSSWlfM-plPJnQUSPunztmtllK9edNSCg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"studentName\": \"abc\",\r\n    \"studentEmail\": \"changed@gmail.com\",\r\n    \"studentTelephoneNumber\": \"123\",\r\n    \"studentAddress\": \"123 Street\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/admin/students/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"admin",
+								"students",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 18 Jul 2023 08:47:36 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"studentId\": \"2\",\n    \"studentName\": \"abc\",\n    \"studentEmail\": \"changed@gmail.com\",\n    \"studentTelephoneNumber\": \"123\",\n    \"studentAddress\": \"123 Street\"\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4OTY2ODYwMywiZXhwIjoxNjg5Njg2NjAzfQ.pAduEqxZ_DqsWwJ7TBjuP96Kfleq032c29fV58Rg55ZIQOAQ5mH5i4NUJyL13NVq49TTNLJWJ79V42LBTn2LSQ"
+		}
+	]
+}

@@ -1,0 +1,1120 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "JWTAuthenticationTest",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:9090"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "noauthAuth": {
+                "type": "http",
+                "scheme": "noauth"
+            }
+        }
+    },
+    "paths": {
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "General"
+                ],
+                "summary": "Get Token",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "username": "admin",
+                                    "password": "password"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "noauthAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "X-Content-Type-Options": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "nosniff"
+                                }
+                            },
+                            "X-XSS-Protection": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "0"
+                                }
+                            },
+                            "Cache-Control": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "no-cache, no-store, max-age=0, must-revalidate"
+                                }
+                            },
+                            "Pragma": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "no-cache"
+                                }
+                            },
+                            "Expires": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "0"
+                                }
+                            },
+                            "X-Frame-Options": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "DENY"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Transfer-Encoding": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "chunked"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Mon, 17 Jul 2023 20:21:23 GMT"
+                                }
+                            },
+                            "Keep-Alive": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "timeout=60"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "keep-alive"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "jwtToken": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4OTYyNTI4MywiZXhwIjoxNjg5NjQzMjgzfQ.WQK02y7IUSGBGgFdmj8ZpmwukRh4F86SRM4twaerTH2BJWlA4lHkAwSSQV-Vt4w3NZGV2tgfVG2kYLm3KdADZQ",
+                                    "username": "admin"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/courses": {
+            "get": {
+                "tags": [
+                    "General"
+                ],
+                "summary": "Get Courses",
+                "security": [
+                    {
+                        "noauthAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Bearer {{token}}"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "X-Content-Type-Options": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "nosniff"
+                                }
+                            },
+                            "X-XSS-Protection": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "0"
+                                }
+                            },
+                            "Cache-Control": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "no-cache, no-store, max-age=0, must-revalidate"
+                                }
+                            },
+                            "Pragma": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "no-cache"
+                                }
+                            },
+                            "Expires": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "0"
+                                }
+                            },
+                            "X-Frame-Options": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "DENY"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Transfer-Encoding": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "chunked"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Mon, 17 Jul 2023 20:24:40 GMT"
+                                }
+                            },
+                            "Keep-Alive": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "timeout=60"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "keep-alive"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": [
+                                    {
+                                        "courseId": "03ec72a2-1230-4812-9743-16eac9381db3",
+                                        "courseName": "English",
+                                        "courseTeacher": "abc"
+                                    },
+                                    {
+                                        "courseId": "65077889-51d8-409e-8635-09e003296052",
+                                        "courseName": "Math",
+                                        "courseTeacher": "abc"
+                                    },
+                                    {
+                                        "courseId": "3dc37796-c19c-4eb0-afa3-897115ffc889",
+                                        "courseName": "Science",
+                                        "courseTeacher": "abc"
+                                    },
+                                    {
+                                        "courseId": "8b20cf0d-c625-4b5a-b303-879dd98d757f",
+                                        "courseName": "History",
+                                        "courseTeacher": "abc"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "General"
+                ],
+                "summary": "Add Course",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "courseId": "111",
+                                    "courseName": "abc",
+                                    "courseTeacher": "gef"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Bearer {{token}}"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "X-Content-Type-Options": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "nosniff"
+                                }
+                            },
+                            "X-XSS-Protection": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "0"
+                                }
+                            },
+                            "Cache-Control": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "no-cache, no-store, max-age=0, must-revalidate"
+                                }
+                            },
+                            "Pragma": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "no-cache"
+                                }
+                            },
+                            "Expires": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "0"
+                                }
+                            },
+                            "X-Frame-Options": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "DENY"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Transfer-Encoding": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "chunked"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Mon, 17 Jul 2023 20:37:59 GMT"
+                                }
+                            },
+                            "Keep-Alive": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "timeout=60"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "keep-alive"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": [
+                                    {
+                                        "courseId": "ea377ab4-52ca-43c2-8105-a5350ac89058",
+                                        "courseName": "English",
+                                        "courseTeacher": "abc"
+                                    },
+                                    {
+                                        "courseId": "35856873-79e0-4e90-a039-e099a177ddb1",
+                                        "courseName": "Math",
+                                        "courseTeacher": "abc"
+                                    },
+                                    {
+                                        "courseId": "6340b1c8-3309-478b-a415-62a1d2234d7b",
+                                        "courseName": "Science",
+                                        "courseTeacher": "abc"
+                                    },
+                                    {
+                                        "courseId": "822e4643-3c4a-4583-812f-4fa406d7e3a2",
+                                        "courseName": "History",
+                                        "courseTeacher": "abc"
+                                    },
+                                    {
+                                        "courseId": "111",
+                                        "courseName": "abc",
+                                        "courseTeacher": "gef"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/students": {
+            "get": {
+                "tags": [
+                    "General"
+                ],
+                "summary": "Get Students",
+                "security": [
+                    {
+                        "noauthAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Bearer {{token}}"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "X-Content-Type-Options": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "nosniff"
+                                }
+                            },
+                            "X-XSS-Protection": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "0"
+                                }
+                            },
+                            "Cache-Control": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "no-cache, no-store, max-age=0, must-revalidate"
+                                }
+                            },
+                            "Pragma": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "no-cache"
+                                }
+                            },
+                            "Expires": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "0"
+                                }
+                            },
+                            "X-Frame-Options": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "DENY"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Transfer-Encoding": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "chunked"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Tue, 18 Jul 2023 08:40:38 GMT"
+                                }
+                            },
+                            "Keep-Alive": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "timeout=60"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "keep-alive"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": [
+                                    {
+                                        "studentId": "04fdac81-44e7-40e4-aa43-9cdf03e00543",
+                                        "studentName": "student1",
+                                        "studentEmail": "student1@gmail.com",
+                                        "studentTelephoneNumber": "123",
+                                        "studentAddress": "123 Street"
+                                    },
+                                    {
+                                        "studentId": "1c7aa2db-6d49-47d4-9da9-14f1f5877ab1",
+                                        "studentName": "student2",
+                                        "studentEmail": "student2@gmail.com",
+                                        "studentTelephoneNumber": "456",
+                                        "studentAddress": "456 Street"
+                                    },
+                                    {
+                                        "studentId": "f72690ed-6b31-463d-90c0-5f9e97202807",
+                                        "studentName": "student3",
+                                        "studentEmail": "student3@gmail.com",
+                                        "studentTelephoneNumber": "789",
+                                        "studentAddress": "789 Street"
+                                    },
+                                    {
+                                        "studentId": "d4ec2176-7b30-40a1-89e5-6fb5dd7ef544",
+                                        "studentName": "student4",
+                                        "studentEmail": "student4@gmail.com",
+                                        "studentTelephoneNumber": "111",
+                                        "studentAddress": "111 Street"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "General"
+                ],
+                "summary": "Add Student",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "studentId": "111",
+                                    "studentName": "abc",
+                                    "studentEmail": "gef@gmail.com",
+                                    "studentTelephoneNumber": "123",
+                                    "studentAddress": "123 Street"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Bearer {{token}}"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "X-Content-Type-Options": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "nosniff"
+                                }
+                            },
+                            "X-XSS-Protection": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "0"
+                                }
+                            },
+                            "Cache-Control": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "no-cache, no-store, max-age=0, must-revalidate"
+                                }
+                            },
+                            "Pragma": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "no-cache"
+                                }
+                            },
+                            "Expires": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "0"
+                                }
+                            },
+                            "X-Frame-Options": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "DENY"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Transfer-Encoding": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "chunked"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Tue, 18 Jul 2023 08:44:25 GMT"
+                                }
+                            },
+                            "Keep-Alive": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "timeout=60"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "keep-alive"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": [
+                                    {
+                                        "studentId": "04fdac81-44e7-40e4-aa43-9cdf03e00543",
+                                        "studentName": "student1",
+                                        "studentEmail": "student1@gmail.com",
+                                        "studentTelephoneNumber": "123",
+                                        "studentAddress": "123 Street"
+                                    },
+                                    {
+                                        "studentId": "1c7aa2db-6d49-47d4-9da9-14f1f5877ab1",
+                                        "studentName": "student2",
+                                        "studentEmail": "student2@gmail.com",
+                                        "studentTelephoneNumber": "456",
+                                        "studentAddress": "456 Street"
+                                    },
+                                    {
+                                        "studentId": "f72690ed-6b31-463d-90c0-5f9e97202807",
+                                        "studentName": "student3",
+                                        "studentEmail": "student3@gmail.com",
+                                        "studentTelephoneNumber": "789",
+                                        "studentAddress": "789 Street"
+                                    },
+                                    {
+                                        "studentId": "d4ec2176-7b30-40a1-89e5-6fb5dd7ef544",
+                                        "studentName": "student4",
+                                        "studentEmail": "student4@gmail.com",
+                                        "studentTelephoneNumber": "111",
+                                        "studentAddress": "111 Street"
+                                    },
+                                    {
+                                        "studentId": "111",
+                                        "studentName": "abc",
+                                        "studentEmail": "gef@gmail.com",
+                                        "studentTelephoneNumber": "123",
+                                        "studentAddress": "123 Street"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/courses/English": {
+            "get": {
+                "tags": [
+                    "General"
+                ],
+                "summary": "Get Course",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Bearer {{token}}"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "X-Content-Type-Options": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "nosniff"
+                                }
+                            },
+                            "X-XSS-Protection": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "0"
+                                }
+                            },
+                            "Cache-Control": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "no-cache, no-store, max-age=0, must-revalidate"
+                                }
+                            },
+                            "Pragma": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "no-cache"
+                                }
+                            },
+                            "Expires": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "0"
+                                }
+                            },
+                            "X-Frame-Options": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "DENY"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Transfer-Encoding": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "chunked"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Mon, 17 Jul 2023 20:25:35 GMT"
+                                }
+                            },
+                            "Keep-Alive": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "timeout=60"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "keep-alive"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "courseId": "03ec72a2-1230-4812-9743-16eac9381db3",
+                                    "courseName": "English",
+                                    "courseTeacher": "abc"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/students/student1": {
+            "get": {
+                "tags": [
+                    "General"
+                ],
+                "summary": "Get Student",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Bearer {{token}}"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "X-Content-Type-Options": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "nosniff"
+                                }
+                            },
+                            "X-XSS-Protection": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "0"
+                                }
+                            },
+                            "Cache-Control": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "no-cache, no-store, max-age=0, must-revalidate"
+                                }
+                            },
+                            "Pragma": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "no-cache"
+                                }
+                            },
+                            "Expires": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "0"
+                                }
+                            },
+                            "X-Frame-Options": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "DENY"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Transfer-Encoding": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "chunked"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Tue, 18 Jul 2023 08:42:55 GMT"
+                                }
+                            },
+                            "Keep-Alive": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "timeout=60"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "keep-alive"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "studentId": "04fdac81-44e7-40e4-aa43-9cdf03e00543",
+                                    "studentName": "student1",
+                                    "studentEmail": "student1@gmail.com",
+                                    "studentTelephoneNumber": "123",
+                                    "studentAddress": "123 Street"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/courses/1": {
+            "put": {
+                "tags": [
+                    "General"
+                ],
+                "summary": "Update Course",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "courseName": "English Medium",
+                                    "courseTeacher": "abc to def"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Bearer {{token}}"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "X-Content-Type-Options": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "nosniff"
+                                }
+                            },
+                            "X-XSS-Protection": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "0"
+                                }
+                            },
+                            "Cache-Control": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "no-cache, no-store, max-age=0, must-revalidate"
+                                }
+                            },
+                            "Pragma": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "no-cache"
+                                }
+                            },
+                            "Expires": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "0"
+                                }
+                            },
+                            "X-Frame-Options": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "DENY"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Transfer-Encoding": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "chunked"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Tue, 18 Jul 2023 08:27:52 GMT"
+                                }
+                            },
+                            "Keep-Alive": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "timeout=60"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "keep-alive"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "courseId": "1",
+                                    "courseName": "English Medium",
+                                    "courseTeacher": "abc to def"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/students/2": {
+            "put": {
+                "tags": [
+                    "General"
+                ],
+                "summary": "Update Student",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {
+                                    "studentName": "abc",
+                                    "studentEmail": "changed@gmail.com",
+                                    "studentTelephoneNumber": "123",
+                                    "studentAddress": "123 Street"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Bearer {{token}}"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "X-Content-Type-Options": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "nosniff"
+                                }
+                            },
+                            "X-XSS-Protection": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "0"
+                                }
+                            },
+                            "Cache-Control": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "no-cache, no-store, max-age=0, must-revalidate"
+                                }
+                            },
+                            "Pragma": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "no-cache"
+                                }
+                            },
+                            "Expires": {
+                                "schema": {
+                                    "type": "integer",
+                                    "example": "0"
+                                }
+                            },
+                            "X-Frame-Options": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "DENY"
+                                }
+                            },
+                            "Content-Type": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "application/json"
+                                }
+                            },
+                            "Transfer-Encoding": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "chunked"
+                                }
+                            },
+                            "Date": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Tue, 18 Jul 2023 08:47:36 GMT"
+                                }
+                            },
+                            "Keep-Alive": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "timeout=60"
+                                }
+                            },
+                            "Connection": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "keep-alive"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "studentId": "2",
+                                    "studentName": "abc",
+                                    "studentEmail": "changed@gmail.com",
+                                    "studentTelephoneNumber": "123",
+                                    "studentAddress": "123 Street"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
