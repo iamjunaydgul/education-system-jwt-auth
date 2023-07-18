@@ -21,7 +21,7 @@ import java.io.IOException;
 @Component
 public class JWTAuthFilter extends OncePerRequestFilter {
 
-    private org.slf4j.Logger logger = (org.slf4j.Logger) LoggerFactory.getLogger(OncePerRequestFilter.class);
+    private org.slf4j.Logger logger = LoggerFactory.getLogger(OncePerRequestFilter.class);
     @Autowired
     private JWTHelper jwtHelper;
 
@@ -69,7 +69,7 @@ public class JWTAuthFilter extends OncePerRequestFilter {
 
             //fetch user detail from username
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
-            Boolean validateToken = this.jwtHelper.validateToken(token, userDetails);
+            boolean validateToken = this.jwtHelper.validateToken(token, userDetails);
             if (validateToken) {
 
                 //set the authentication

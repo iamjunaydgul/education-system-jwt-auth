@@ -1,6 +1,6 @@
 package com.example.authjwt.config;
 
-import com.example.authjwt.controller.AuthController;
+import com.example.authjwt.controller.APIController;
 import com.example.authjwt.model.JWTReq;
 import com.example.authjwt.model.JWTRes;
 import com.example.authjwt.security.JWTHelper;
@@ -19,26 +19,16 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/auth")
 public class JWTAuthController {
-
     @Autowired
     private UserDetailsService userDetailsService;
-
     @Autowired(required = true)
     private AuthenticationManager manager;
-
-
     @Autowired
     private JWTHelper helper;
-
-    private Logger logger = LoggerFactory.getLogger(AuthController.class);
-
-
     @PostMapping("/login")
     public ResponseEntity<JWTRes> login(@RequestBody JWTReq request) {
 
         this.doAuthenticate(request.getUsername(), request.getPassword());
-
-
         UserDetails userDetails = userDetailsService.loadUserByUsername(request.getUsername());
         String token = this.helper.generateToken(userDetails);
 
@@ -58,7 +48,6 @@ public class JWTAuthController {
         }
 
     }
-
     @ExceptionHandler(BadCredentialsException.class)
     public String exceptionHandler() {
         return "Credentials Invalid !!";
